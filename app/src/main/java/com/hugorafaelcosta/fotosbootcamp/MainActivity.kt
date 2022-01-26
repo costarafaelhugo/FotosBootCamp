@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
                     == PackageManager.PERMISSION_DENIED
                 ) {
                     val permission = arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE)
-                    requestPermissions(permission, PERMISSION_CODE)
+                    requestPermissions(permission, PERMISSION_CODE_IMAGE_PICK)
                 } else {
                     pickImageFromGAllery()
                 }
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
-            PERMISSION_CODE -> {
+            PERMISSION_CODE_IMAGE_PICK -> {
                 if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     pickImageFromGAllery()
                 }
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     companion object {
-        private val PERMISSION_CODE = 1000
+        private val PERMISSION_CODE_IMAGE_PICK = 1000
         private val IMAGE_PICK_CODE = 1001
 
     }
